@@ -1,0 +1,60 @@
+{{>layout/header}}
+<script>
+
+</script>
+<div class="col-lg-12">
+    <div class="form-group">
+        <h2>MyPlace Service : 원하는 장소 검색 서비스</h2>
+    </div>
+    <nav class="navbar navbar-light bg-light">
+        <div class="row">
+            <input class="mr-sm-2" id="keyword" type="text" placeholder="검색어를 입력하세요" value="{{keyword}}" aria-label="Search"/>
+            <button class="btn btn-outline-success my-2 my-sm-0" class="btn btn-primary" id="btn-search">검색</button>
+        </div>
+            <div class="dropdown col-md-5">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    인기 검색어
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {{#keywords}}
+                    <a class="dropdown-item" href="#">{{keyword}} : hits {{hits}}</a>
+                    {{/keywords}}
+                </div>
+            </div>
+
+    </nav>
+    <hr>
+<div class="accordion" id="ac">
+    {{#place_info}}
+    <div class="card">
+        <div class="card-header" id="heading{{id}}">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{id}}" aria-expanded="true" aria-controls="collapse{{id}}">
+                    {{place_name}}
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapse{{id}}" class="collapse" aria-labelledby="heading{{id}}" data-parent="#ac">
+            <div class="card-body">
+                <p class="lead">
+                    * 카테고리 : {{category_name}} <br>
+                    * 연락처 : {{phone}}<br>
+                    * 지번주소 : {{address_name}}<br>
+                    * 도로명주소 : {{road_address_name}}<br>
+                    * <b>지도 바로가기 url</b> : https://map.kakao.com/link/map/{{id}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {{/place_info}}
+
+</div>
+    <input type ="hidden" id="currentPage" value="{{current_page}}"/>
+    <input type ="hidden" id="pageableCount" value="{{search_info.pageable_count}}"/>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" id="btn-previous">Previous</button>
+        <button type="button" class="btn btn-secondary" id="btn-next">Next</button>
+    </div>
+</div>
+{{>layout/footer}}

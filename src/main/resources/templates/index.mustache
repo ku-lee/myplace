@@ -1,0 +1,28 @@
+{{>layout/header}}
+
+
+
+<div class="col-md-12">
+    <div class="form-group">
+        <h2>MyPlace Service : 원하는 장소 검색 서비스</h2>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <h2> 로그인 </h2>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="memberId">회원 아이디</label>
+                <input type="text" class="form-control" id="memberId" placeholder="아이디를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="password">회원 비밀번호 </label>
+                <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+            </div>
+        </form>
+        <a href="/join" role="button" class="btn btn-info">가입하기</a>
+        <button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+    </div>
+</div>
+
+{{>layout/footer}}
