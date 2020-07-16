@@ -4,10 +4,15 @@ plugins {
     id 'java'
 }
 
-group = 'com.myplace'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-description = 'MyPlace project'
+group 'com.myplace'
+version '0.0.1-SNAPSHOT'
+//sourceCompatibility '1.8'
+apply plugin: 'application'
+
+mainClassName = 'com.myplace.Application'
+description 'MyPlace project'
+
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -32,4 +37,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
